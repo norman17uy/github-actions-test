@@ -1,0 +1,21 @@
+name: Shell Commands
+# These are events
+on: [push]
+# Defining our jobs. 
+jobs:
+  run-shell-command: 
+    # Every job runs on VM.
+    runs-on: ubuntu-latest
+    # Job can have 1 or more steps.
+    # Steps can either run a action or any terminal commands
+    steps:
+      - name: echo a string
+        # Ubuntu has bash shell, so we can run a bash command.
+        run: echo "Hello World"
+        # Step # 2
+      - name: multiline script
+        # Running multiple commands
+        run: |
+          node -v
+          npm -v
+
