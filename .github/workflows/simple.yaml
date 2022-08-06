@@ -4,7 +4,7 @@ on: [push]
 # Defining our jobs. 
 jobs:
   run-shell-command: 
-    # Every job runs on VM.
+    # 1st job which runs on Linux
     runs-on: ubuntu-latest
     # Job can have 1 or more steps.
     # Steps can either run a action or any terminal commands
@@ -18,4 +18,13 @@ jobs:
         run: |
           node -v
           npm -v
+  # 2nd job which runs on Windows
+  run-windows-command: 
+    runs-on: windows-latest
+    steps:
+      - name: Directory PowerShell
+        run: Get-Location
+      - name: Directory bash 
+        run: pwd
+        shell: bash
 
