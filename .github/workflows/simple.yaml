@@ -18,7 +18,7 @@ jobs:
         run: |
           node -v
           npm -v
-  # 2nd job which runs on Windows
+  # 2nd job which runs on Windows (runs in paraller with 1st job)
   run-windows-command: 
     runs-on: windows-latest
     steps:
@@ -27,4 +27,18 @@ jobs:
       - name: Directory bash 
         run: pwd
         shell: bash
+  # 3rd job
+  run-windows-third-job-command: 
+    runs-on: windows-latest
+    # If you want this job to wait until the specified job finished
+    needs: ["run-windows-command"]
+    steps:
+      - name: Directory PowerShell
+        run: Get-Location
+      - name: Directory bash 
+        run: pwd
+        shell: bash
+
+
+    
 
