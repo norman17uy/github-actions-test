@@ -1,0 +1,41 @@
+# name: Filter workflow
+
+# on:
+#   push:
+#   # This will only run in master branch when you push something.
+#   # Any filter we do in the push can be applied in PR as well.
+#     branches:
+#       - master
+#       # We can also use pattern, run this workflow for branch that matches with feature/
+#       - 'feature/*' # matches feature/featA, matches feature/featA except / (Forward slash). t won't match feature/feat/a. 
+#       - 'feature/**' # It will match these feature/featA, feature/featA, feature/feat/a.  (Matches any string)
+#       - '!feature/featC' # Putting ! at the start will ignore the branch if it matches the earlier patterns. But we must put it after the patterns.
+#    # Similar how branches work. 
+#    # We also have tag-ignore and we can't use it along with tag at the same time.
+#     tags:
+#       - v1.*
+#     # We can also filter with certain paths.
+#     # Let say we only want to run this workflow when we change maybe only Javascripts files.
+ 
+#     paths:
+#       # This pattern will match any javascript in repository.
+#       # Whenever we push js file this will workflow will run.
+#       - '**.js'
+#       - '!filename.js' # This workflow will run except with this specific filename of js file type.
+#     # We can't use along side with paths.
+#     # paths-ignore:
+#     #   - 'docs/**'
+#   # pull_request:
+#   #   # This will only run on PR on master branch
+#   #   branches:
+#   #     - master
+    
+# jobs:
+#   run-shell-command: 
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Output payload
+#         # Accessing th e client payload we passed with POST request.
+#         run: echo ${{ github.event.client_payload.env }}
+
+  

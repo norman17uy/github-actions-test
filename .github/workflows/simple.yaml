@@ -1,43 +1,43 @@
-name: Shell Commands
-# These are events
-on: [push]
-# Defining our jobs. 
-jobs:
-  run-shell-command: 
-    # 1st job which runs on Linux
-    runs-on: ubuntu-latest
-    # Job can have 1 or more steps.
-    # Steps can either run a action or any terminal commands
-    steps:
-      - name: echo a string
-        # Ubuntu has bash shell, so we can run a bash command.
-        run: echo "Hello World"
-        # Step # 2
-      - name: multiline script
-        # Running multiple commands
-        run: |
-          node -v
-          npm -v
-  # 2nd job which runs on Windows (runs in paraller with 1st job)
-  run-windows-command: 
-    runs-on: windows-latest
-    steps:
-      - name: Directory PowerShell
-        run: Get-Location
-      - name: Directory bash 
-        run: pwd
-        shell: bash
-  # 3rd job
-  run-windows-third-job-command: 
-    runs-on: windows-latest
-    # If you want this job to wait until the specified job finished
-    needs: ["run-windows-command"]
-    steps:
-      - name: Directory PowerShell
-        run: Get-Location
-      - name: Directory bash 
-        run: pwd
-        shell: bash
+# name: Shell Commands
+# # These are events
+# on: [push]
+# # Defining our jobs. 
+# jobs:
+#   run-shell-command: 
+#     # 1st job which runs on Linux
+#     runs-on: ubuntu-latest
+#     # Job can have 1 or more steps.
+#     # Steps can either run a action or any terminal commands
+#     steps:
+#       - name: echo a string
+#         # Ubuntu has bash shell, so we can run a bash command.
+#         run: echo "Hello World"
+#         # Step # 2
+#       - name: multiline script
+#         # Running multiple commands
+#         run: |
+#           node -v
+#           npm -v
+#   # 2nd job which runs on Windows (runs in paraller with 1st job)
+#   run-windows-command: 
+#     runs-on: windows-latest
+#     steps:
+#       - name: Directory PowerShell
+#         run: Get-Location
+#       - name: Directory bash 
+#         run: pwd
+#         shell: bash
+#   # 3rd job
+#   run-windows-third-job-command: 
+#     runs-on: windows-latest
+#     # If you want this job to wait until the specified job finished
+#     needs: ["run-windows-command"]
+#     steps:
+#       - name: Directory PowerShell
+#         run: Get-Location
+#       - name: Directory bash 
+#         run: pwd
+#         shell: bash
 
 
     
