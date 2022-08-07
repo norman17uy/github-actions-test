@@ -1,0 +1,23 @@
+name: Trigger workflow
+
+on:
+  repository_dispatch:
+    types: [build]
+  # schedule:
+  # An array, each array should have an object with the key of cron.
+  # CRON shedule expression consists of 5 things, minutes, hours, day, month and day of a week.
+  # * means any value
+    # - cron: "*/5 * * * *"
+  pull_request:
+    types: [closed, assigned, opened, reopened]
+jobs:
+  run-shell-command: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Hello World"
+      - name: multiline script
+        run: |
+          node -v
+          npm -v
+  
