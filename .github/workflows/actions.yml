@@ -6,6 +6,19 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: List Files
+        run: |
+          pwd
+          ls -a
+      - name: Checkout Action from Github
+        # One of the most familiar actions from github https://github.com/actions/checkout
+        # This will authenticate and fetch you specific commit who triggered this.
+        # and this will clone you repo in your virtual machine.
+        uses: actions/checkout@v3
+      - name: List all files after checking out using github chekckout actions.
+        run: |
+          pwd
+          ls -a
       - name: Sample JS Actions
         # We have to make an id for this step to be referenced.
         id: greet
