@@ -16,11 +16,6 @@ jobs:
     steps:
       - name: Output payload
         # Accessing the client payload we passed with POST request.
-        run: echo $ {{ github.event.client_payload.env}}
-      - name: echo a string
-        run: echo "Hello World"
-      - name: multiline script
-        run: |
-          node -v
-          npm -v
+        run: echo ${{ github.event.client_payload.env }}
+
   
