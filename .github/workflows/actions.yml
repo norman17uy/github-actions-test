@@ -1,5 +1,11 @@
 name: Actions Workflow
-on: [push, pull_request]
+# We can have a object format to be more explicit
+on:
+  push:
+  pull_request:
+    types: [closed, assigned, opened, reopened]
+# We format it using array.
+# on: [push, pull_request]
 
 jobs:
   # Let's call it this.
