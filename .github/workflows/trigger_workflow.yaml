@@ -14,6 +14,9 @@ jobs:
   run-shell-command: 
     runs-on: ubuntu-latest
     steps:
+      - name: Output payload
+        # Accessing the client payload we passed with POST request.
+        run: echo $ {{ github.event.client_payload.env}}
       - name: echo a string
         run: echo "Hello World"
       - name: multiline script
